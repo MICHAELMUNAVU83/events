@@ -1,5 +1,5 @@
 defmodule EventsWeb.ScanLive.Index do
-  use EventsWeb, :live_view
+  use EventsWeb, :dashboard_live_view
 
   alias Events.Scans
   alias Events.Scans.Scan

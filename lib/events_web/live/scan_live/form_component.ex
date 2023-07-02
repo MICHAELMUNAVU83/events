@@ -1,5 +1,5 @@
 defmodule EventsWeb.ScanLive.FormComponent do
-  use EventsWeb, :live_component
+  use EventsWeb, :dashboard_live_view
 
   alias Events.Scans
 

@@ -1,5 +1,5 @@
 defmodule EventsWeb.CustomerLive.Index do
-  use EventsWeb, :live_view
+  use EventsWeb, :dashboard_live_view
 
   alias Events.Customers
   alias Events.Customers.Customer

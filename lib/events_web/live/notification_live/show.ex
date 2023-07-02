@@ -1,5 +1,5 @@
 defmodule EventsWeb.NotificationLive.Show do
-  use EventsWeb, :live_view
+  use EventsWeb, :dashboard_live_view
 
   alias Events.Notifications
 

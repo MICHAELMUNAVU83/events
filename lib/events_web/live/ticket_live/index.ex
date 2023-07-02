@@ -1,5 +1,5 @@
 defmodule EventsWeb.TicketLive.Index do
-  use EventsWeb, :live_view
+  use EventsWeb, :dashboard_live_view
 
   alias Events.Tickets
   alias Events.Tickets.Ticket
