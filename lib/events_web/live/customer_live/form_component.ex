@@ -1,6 +1,5 @@
 defmodule EventsWeb.CustomerLive.FormComponent do
-  use EventsWeb, :dashboard_live_view
-
+  use EventsWeb, :live_component
   alias Events.Customers
 
   @impl true

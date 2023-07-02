@@ -1,5 +1,5 @@
 defmodule EventsWeb.EventDescriptionLive.FormComponent do
-  use EventsWeb, :dashboard_live_view
+  use EventsWeb, :live_component
 
   alias Events.EventsDescriptions
 
