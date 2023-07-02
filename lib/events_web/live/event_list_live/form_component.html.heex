@@ -1,5 +1,5 @@
 <div>
-  <h2><%= @title %></h2>
+  <h2 class="text-[#F36363] font-bold text-xl"><%= @title %></h2>
 
   <.form
     let={f}
@@ -9,40 +9,108 @@
     phx-change="validate"
     phx-submit="save"
   >
-    <%= label(f, :name) %>
-    <%= text_input(f, :name) %>
-    <%= error_tag(f, :name) %>
+    <div class="mt-4 p-4 gap-4 flex flex-col ">
+      <div class="flex flex-col md:flex-row w-[100%] justify-between items-start">
+        <div class="flex gap-2 flex-col w-[100%] md:w-[48%]">
+          <%= label(f, :name, class: "text-[#F36363]") %>
+          <%= text_input(f, :name,
+            class:
+              "p-2 text-black border-transparent bg-white focus:border-transparent focus:ring-0 p-2 focus:outline-[#F36363]"
+          ) %>
+          <p class="pt-5">
+            <%= error_tag(f, :name) %>
+          </p>
+        </div>
 
-    <%= label(f, :doe) %>
-    <%= date_select(f, :doe) %>
-    <%= error_tag(f, :doe) %>
+        <div class="flex gap-2 flex-col w-[100%] md:w-[48%]">
+          <%= label(f, :doe, class: "text-[#F36363]") %>
+          <%= date_input(f, :doe,
+            class:
+              "p-2 text-black border-transparent bg-white focus:border-transparent focus:ring-0 p-2 focus:outline-[#F36363]"
+          ) %>
+          <p class="pt-5">
+            <%= error_tag(f, :doe) %>
+          </p>
+        </div>
+      </div>
 
-    <%= label(f, :time) %>
-    <%= text_input(f, :time) %>
-    <%= error_tag(f, :time) %>
+      <div class="flex flex-col md:flex-row w-[100%] justify-between items-start">
+        <div class="flex gap-2 flex-col w-[100%] md:w-[48%]">
+          <%= label(f, :time, class: "text-[#F36363]") %>
+          <%= text_input(f, :time,
+            class:
+              "p-2 text-black border-transparent bg-white focus:border-transparent focus:ring-0 p-2 focus:outline-[#F36363]"
+          ) %>
+          <p class="pt-5">
+            <%= error_tag(f, :time) %>
+          </p>
+        </div>
 
-    <%= label(f, :images) %>
-    <%= text_input(f, :images) %>
-    <%= error_tag(f, :images) %>
+        <div class="flex gap-2 flex-col w-[100%] md:w-[48%]">
+          <%= label(f, :images, class: "text-[#F36363]") %>
+          <%= text_input(f, :images,
+            class:
+              "p-2 text-black border-transparent bg-white focus:border-transparent focus:ring-0 p-2 focus:outline-[#F36363]"
+          ) %>
+          <p class="pt-5">
+            <%= error_tag(f, :images) %>
+          </p>
+        </div>
+      </div>
 
-    <%= label(f, :approvalone) %>
-    <%= text_input(f, :approvalone) %>
-    <%= error_tag(f, :approvalone) %>
+      <div class="flex flex-col md:flex-row w-[100%] justify-between items-start">
+        <div class="flex gap-2 flex-col w-[100%] md:w-[48%]">
+          <%= label(f, :approvalone, class: "text-[#F36363]") %>
+          <%= text_input(f, :approvalone,
+            class:
+              "p-2 text-black border-transparent bg-white focus:border-transparent focus:ring-0 p-2 focus:outline-[#F36363]"
+          ) %>
+          <p class="pt-5">
+            <%= error_tag(f, :approvalone) %>
+          </p>
+        </div>
 
-    <%= label(f, :approvaltwo) %>
-    <%= text_input(f, :approvaltwo) %>
-    <%= error_tag(f, :approvaltwo) %>
+        <div class="flex gap-2 flex-col w-[100%] md:w-[48%]">
+          <%= label(f, :approvaltwo, class: "text-[#F36363]") %>
+          <%= text_input(f, :approvaltwo,
+            class:
+              "p-2 text-black border-transparent bg-white focus:border-transparent focus:ring-0 p-2 focus:outline-[#F36363]"
+          ) %>
+          <p class="pt-5">
+            <%= error_tag(f, :approvaltwo) %>
+          </p>
+        </div>
+      </div>
+      <div class="flex flex-col md:flex-row w-[100%] justify-between items-start">
+        <div class="flex gap-2 flex-col w-[100%] md:w-[48%]">
+          <%= label(f, :slots, class: "text-[#F36363]") %>
+          <%= number_input(f, :slots,
+            class:
+              "p-2 text-black border-transparent bg-white focus:border-transparent focus:ring-0 p-2 focus:outline-[#F36363]"
+          ) %>
+          <p class="pt-5">
+            <%= error_tag(f, :slots) %>
+          </p>
+        </div>
 
-    <%= label(f, :slots) %>
-    <%= number_input(f, :slots) %>
-    <%= error_tag(f, :slots) %>
+        <div class="flex gap-2 flex-col w-[100%] md:w-[48%]">
+          <%= label(f, :status, class: "text-[#F36363]") %>
+          <%= text_input(f, :status,
+            class:
+              "p-2 text-black border-transparent bg-white focus:border-transparent focus:ring-0 p-2 focus:outline-[#F36363]"
+          ) %>
+          <p class="pt-5">
+            <%= error_tag(f, :status) %>
+          </p>
+        </div>
+      </div>
 
-    <%= label(f, :status) %>
-    <%= text_input(f, :status) %>
-    <%= error_tag(f, :status) %>
-
-    <div>
-      <%= submit("Save", phx_disable_with: "Saving...") %>
+      <div class="flex gap-2 flex-col md:w-[30%] w-[40%] mx-auto">
+        <%= submit("Save",
+          phx_disable_with: "Saving...",
+          class: "bg-[#F36363] text-white p-2 rounded-md"
+        ) %>
+      </div>
     </div>
   </.form>
 </div>

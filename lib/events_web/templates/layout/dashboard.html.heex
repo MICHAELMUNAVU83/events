@@ -1,4 +1,4 @@
-<main class="container">
+<main>
   <%!-- <p class="alert alert-info" role="alert" phx-click="lv:clear-flash" phx-value-key="info">
     <%= live_flash(@flash, :info) %>
   </p>
@@ -7,120 +7,120 @@
     <%= live_flash(@flash, :error) %>
   </p> --%>
   <div class="h-[100vh] fixed w-[130px] hidden md:flex flex-col items-center pt-4 bg-[#1F2028]">
-        <img
-          src={Routes.static_path(@socket, "/images/logo.png")}
-          alt="logo"
-          class="w-[100px]  m-4 object-cover"
-        />
+    <img
+      src={Routes.static_path(@socket, "/images/logo.png")}
+      alt="logo"
+      class="w-[100px]  m-4 object-cover"
+    />
 
-        <%= live_redirect(
+    <%= live_redirect(
     to: Routes.event_list_index_path(@socket, :index),
     class: "flex flex-col justify-center my-2 items-center hover:bg-[#F36363] w-[60%] mx-auto h-[80px] rounded-2xl hover:scale-105 transition-all ease-in-out  duration-500 gap-2"
   ) do %>
-          <img
-            src={Routes.static_path(@socket, "/images/homedashboardicon.png")}
-            alt="restaurant"
-            class="w-[20px] h-[20px] object-cover"
-          />
-          <p class="text-[#F2F2F2] text-[10px]">
-            EventsList
-          </p>
-        <% end %>
+      <img
+        src={Routes.static_path(@socket, "/images/homedashboardicon.png")}
+        alt="restaurant"
+        class="w-[20px] h-[20px] object-cover"
+      />
+      <p class="text-[#F2F2F2] text-[10px]">
+        EventsList
+      </p>
+    <% end %>
 
-        <%= live_redirect(
+    <%= live_redirect(
     to: Routes.customer_index_path(@socket, :index),
     class: "flex flex-col justify-center my-2 items-center hover:bg-[#F36363] w-[60%] mx-auto h-[80px] rounded-2xl hover:scale-105 transition-all ease-in-out duration-500  gap-2"
   ) do %>
-          <img
-            src={Routes.static_path(@socket, "/images/restauranticon.png")}
-            alt="restaurant"
-            class="w-[20px] h-[20px] object-cover"
-          />
-          <p class="text-[#F2F2F2] text-[10px]">
-            Customers
-          </p>
-        <% end %>
+      <img
+        src={Routes.static_path(@socket, "/images/restauranticon.png")}
+        alt="restaurant"
+        class="w-[20px] h-[20px] object-cover"
+      />
+      <p class="text-[#F2F2F2] text-[10px]">
+        Customers
+      </p>
+    <% end %>
 
-        <%= live_redirect(
+    <%= live_redirect(
     to: Routes.event_description_index_path(@socket, :index),
     class: "flex flex-col justify-center my-2 items-center hover:bg-[#F36363] w-[60%] mx-auto h-[80px] rounded-2xl hover:scale-105 transition-all ease-in-out duration-500   gap-2"
   ) do %>
-          <img
-            src={Routes.static_path(@socket, "/images/stafficon.png")}
-            alt="restaurant"
-            class="w-[20px] h-[20px] object-cover"
-          />
-          <p class="text-[#F2F2F2] text-[10px]">
-            Event Description   
-          </p>
-        <% end %>
+      <img
+        src={Routes.static_path(@socket, "/images/stafficon.png")}
+        alt="restaurant"
+        class="w-[20px] h-[20px] object-cover"
+      />
+      <p class="text-[#F2F2F2] text-[10px]">
+        Event Description
+      </p>
+    <% end %>
 
-        <%= live_redirect(
+    <%= live_redirect(
     to: Routes.notification_index_path(@socket, :index),
     class: "flex flex-col justify-center my-2 items-center hover:bg-[#F36363] w-[60%] mx-auto h-[80px] rounded-2xl hover:scale-105 transition-all ease-in-out duration-500  gap-2"
   ) do %>
-          <img
-            src={Routes.static_path(@socket, "/images/fooditemicon.png")}
-            alt="restaurant"
-            class="w-[20px] h-[20px] object-cover"
-          />
-          <p class="text-[#F2F2F2] text-[10px]">
-            Notifications
-          </p>
-        <% end %>
+      <img
+        src={Routes.static_path(@socket, "/images/fooditemicon.png")}
+        alt="restaurant"
+        class="w-[20px] h-[20px] object-cover"
+      />
+      <p class="text-[#F2F2F2] text-[10px]">
+        Notifications
+      </p>
+    <% end %>
 
-        <%= live_redirect(
+    <%= live_redirect(
     to: Routes.ticket_index_path(@socket, :index),
     class: "flex flex-col justify-center my-2 items-center hover:bg-[#F36363] w-[60%] mx-auto h-[80px] rounded-2xl hover:scale-105 transition-all ease-in-out duration-500  gap-2"
   ) do %>
-          <img
-            src={Routes.static_path(@socket, "/images/ordericon.png")}
-            alt="restaurant"
-            class="w-[20px] h-[20px] object-cover"
-          />
-          <p class="text-[#F2F2F2] text-[10px]">
-            Tickets
-          </p>
-        <% end %>
+      <img
+        src={Routes.static_path(@socket, "/images/ordericon.png")}
+        alt="restaurant"
+        class="w-[20px] h-[20px] object-cover"
+      />
+      <p class="text-[#F2F2F2] text-[10px]">
+        Tickets
+      </p>
+    <% end %>
 
-        <%= live_redirect(
+    <%= live_redirect(
     to: Routes.scan_index_path(@socket, :index),
     class: "flex flex-col justify-center my-2 items-center hover:bg-[#F36363] w-[60%] mx-auto h-[80px] rounded-2xl hover:scale-105 transition-all ease-in-out duration-500  gap-2"
   ) do %>
-          <img
-            src={Routes.static_path(@socket, "/images/foodsicon.png")}
-            alt="restaurant"
-            class="w-[20px] h-[20px] object-cover"
-          />
-          <p class="text-[#F2F2F2] text-[10px]">
-            Scan
-          </p>
-        <% end %>
+      <img
+        src={Routes.static_path(@socket, "/images/foodsicon.png")}
+        alt="restaurant"
+        class="w-[20px] h-[20px] object-cover"
+      />
+      <p class="text-[#F2F2F2] text-[10px]">
+        Scan
+      </p>
+    <% end %>
 
-        <%= live_redirect( to: Routes.users_settings_path(@socket, :edit) , class: "flex flex-col justify-center my-2 items-center hover:bg-[#F36363] w-[60%] mx-auto h-[80px] rounded-2xl hover:scale-105 transition-all ease-in-out duration-500  gap-2") do %>
-          <img
-            src={Routes.static_path(@socket, "/images/profileicon.png")}
-            alt="restaurant"
-            class="w-[20px] h-[20px] object-cover"
-          />
-          <p class="text-[#F2F2F2] text-[10px]">
-            Profile
-          </p>
-        <% end %>
+    <%= live_redirect( to: Routes.users_settings_path(@socket, :edit) , class: "flex flex-col justify-center my-2 items-center hover:bg-[#F36363] w-[60%] mx-auto h-[80px] rounded-2xl hover:scale-105 transition-all ease-in-out duration-500  gap-2") do %>
+      <img
+        src={Routes.static_path(@socket, "/images/profileicon.png")}
+        alt="restaurant"
+        class="w-[20px] h-[20px] object-cover"
+      />
+      <p class="text-[#F2F2F2] text-[10px]">
+        Profile
+      </p>
+    <% end %>
 
-        <%= live_redirect( to: Routes.users_session_path(@socket, :delete), method: :delete , class: "flex flex-col justify-center my-2 items-center hover:bg-[#F36363] w-[60%] mx-auto h-[80px] rounded-2xl hover:scale-105 transition-all ease-in-out duration-500  gap-2") do %>
-          <img
-            src={Routes.static_path(@socket, "/images/logouticon.png")}
-            alt="restaurant"
-            class="w-[20px] h-[20px] object-cover"
-          />
-          <p class="text-[#F2F2F2] text-[10px]">
-            Logout
-          </p>
-        <% end %>
-      </div>
+    <%= live_redirect( to: Routes.users_session_path(@socket, :delete), method: :delete , class: "flex flex-col justify-center my-2 items-center hover:bg-[#F36363] w-[60%] mx-auto h-[80px] rounded-2xl hover:scale-105 transition-all ease-in-out duration-500  gap-2") do %>
+      <img
+        src={Routes.static_path(@socket, "/images/logouticon.png")}
+        alt="restaurant"
+        class="w-[20px] h-[20px] object-cover"
+      />
+      <p class="text-[#F2F2F2] text-[10px]">
+        Logout
+      </p>
+    <% end %>
+  </div>
 
-  <div class="ml-[130px] p-2">
+  <div class="ml-[130px] ">
     <%= @inner_content %>
   </div>
 </main>

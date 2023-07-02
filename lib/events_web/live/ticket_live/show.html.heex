@@ -37,5 +37,6 @@
 
 <span>
   <%= live_patch("Edit", to: Routes.ticket_show_path(@socket, :edit, @ticket), class: "button") %>
-</span> |
+</span>
+|
 <span><%= live_redirect("Back", to: Routes.ticket_index_path(@socket, :index)) %></span>
