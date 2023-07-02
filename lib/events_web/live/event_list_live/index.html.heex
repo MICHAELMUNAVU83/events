@@ -1,0 +1,53 @@
+<h1>Listing Eventslists</h1>
+
+<%= if @live_action in [:new, :edit] do %>
+  <.modal return_to={Routes.event_list_index_path(@socket, :index)}>
+    <.live_component
+      module={EventsWeb.EventListLive.FormComponent}
+      id={@event_list.id || :new}
+      title={@page_title}
+      action={@live_action}
+      event_list={@event_list}
+      return_to={Routes.event_list_index_path(@socket, :index)}
+    />
+  </.modal>
+<% end %>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Doe</th>
+      <th>Time</th>
+      <th>Images</th>
+      <th>Approvalone</th>
+      <th>Approvaltwo</th>
+      <th>Slots</th>
+      <th>Status</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody id="eventslists">
+    <%= for event_list <- @eventslists do %>
+      <tr id={"event_list-#{event_list.id}"}>
+        <td><%= event_list.name %></td>
+        <td><%= event_list.doe %></td>
+        <td><%= event_list.time %></td>
+        <td><%= event_list.images %></td>
+        <td><%= event_list.approvalone %></td>
+        <td><%= event_list.approvaltwo %></td>
+        <td><%= event_list.slots %></td>
+        <td><%= event_list.status %></td>
+
+        <td>
+          <span><%= live_redirect "Show", to: Routes.event_list_show_path(@socket, :show, event_list) %></span>
+          <span><%= live_patch "Edit", to: Routes.event_list_index_path(@socket, :edit, event_list) %></span>
+          <span><%= link "Delete", to: "#", phx_click: "delete", phx_value_id: event_list.id, data: [confirm: "Are you sure?"] %></span>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<span><%= live_patch "New Event list", to: Routes.event_list_index_path(@socket, :new) %></span>

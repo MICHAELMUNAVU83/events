@@ -1,0 +1,31 @@
+<h1>Show Event description</h1>
+
+<%= if @live_action in [:edit] do %>
+  <.modal return_to={Routes.event_description_show_path(@socket, :show, @event_description)}>
+    <.live_component
+      module={EventsWeb.EventDescriptionLive.FormComponent}
+      id={@event_description.id}
+      title={@page_title}
+      action={@live_action}
+      event_description={@event_description}
+      return_to={Routes.event_description_show_path(@socket, :show, @event_description)}
+    />
+  </.modal>
+<% end %>
+
+<ul>
+
+  <li>
+    <strong>Description:</strong>
+    <%= @event_description.description %>
+  </li>
+
+  <li>
+    <strong>Status:</strong>
+    <%= @event_description.status %>
+  </li>
+
+</ul>
+
+<span><%= live_patch "Edit", to: Routes.event_description_show_path(@socket, :edit, @event_description), class: "button" %></span> |
+<span><%= live_redirect "Back", to: Routes.event_description_index_path(@socket, :index) %></span>

@@ -1,0 +1,61 @@
+<h1>Show Event list</h1>
+
+<%= if @live_action in [:edit] do %>
+  <.modal return_to={Routes.event_list_show_path(@socket, :show, @event_list)}>
+    <.live_component
+      module={EventsWeb.EventListLive.FormComponent}
+      id={@event_list.id}
+      title={@page_title}
+      action={@live_action}
+      event_list={@event_list}
+      return_to={Routes.event_list_show_path(@socket, :show, @event_list)}
+    />
+  </.modal>
+<% end %>
+
+<ul>
+
+  <li>
+    <strong>Name:</strong>
+    <%= @event_list.name %>
+  </li>
+
+  <li>
+    <strong>Doe:</strong>
+    <%= @event_list.doe %>
+  </li>
+
+  <li>
+    <strong>Time:</strong>
+    <%= @event_list.time %>
+  </li>
+
+  <li>
+    <strong>Images:</strong>
+    <%= @event_list.images %>
+  </li>
+
+  <li>
+    <strong>Approvalone:</strong>
+    <%= @event_list.approvalone %>
+  </li>
+
+  <li>
+    <strong>Approvaltwo:</strong>
+    <%= @event_list.approvaltwo %>
+  </li>
+
+  <li>
+    <strong>Slots:</strong>
+    <%= @event_list.slots %>
+  </li>
+
+  <li>
+    <strong>Status:</strong>
+    <%= @event_list.status %>
+  </li>
+
+</ul>
+
+<span><%= live_patch "Edit", to: Routes.event_list_show_path(@socket, :edit, @event_list), class: "button" %></span> |
+<span><%= live_redirect "Back", to: Routes.event_list_index_path(@socket, :index) %></span>

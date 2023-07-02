@@ -1,0 +1,41 @@
+<h1>Listing Events descriptions</h1>
+
+<%= if @live_action in [:new, :edit] do %>
+  <.modal return_to={Routes.event_description_index_path(@socket, :index)}>
+    <.live_component
+      module={EventsWeb.EventDescriptionLive.FormComponent}
+      id={@event_description.id || :new}
+      title={@page_title}
+      action={@live_action}
+      event_description={@event_description}
+      return_to={Routes.event_description_index_path(@socket, :index)}
+    />
+  </.modal>
+<% end %>
+
+<table>
+  <thead>
+    <tr>
+      <th>Description</th>
+      <th>Status</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody id="events_descriptions">
+    <%= for event_description <- @events_descriptions do %>
+      <tr id={"event_description-#{event_description.id}"}>
+        <td><%= event_description.description %></td>
+        <td><%= event_description.status %></td>
+
+        <td>
+          <span><%= live_redirect "Show", to: Routes.event_description_show_path(@socket, :show, event_description) %></span>
+          <span><%= live_patch "Edit", to: Routes.event_description_index_path(@socket, :edit, event_description) %></span>
+          <span><%= link "Delete", to: "#", phx_click: "delete", phx_value_id: event_description.id, data: [confirm: "Are you sure?"] %></span>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<span><%= live_patch "New Event description", to: Routes.event_description_index_path(@socket, :new) %></span>

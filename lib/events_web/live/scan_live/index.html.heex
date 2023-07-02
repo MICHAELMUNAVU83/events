@@ -1,0 +1,39 @@
+<h1>Listing Scans</h1>
+
+<%= if @live_action in [:new, :edit] do %>
+  <.modal return_to={Routes.scan_index_path(@socket, :index)}>
+    <.live_component
+      module={EventsWeb.ScanLive.FormComponent}
+      id={@scan.id || :new}
+      title={@page_title}
+      action={@live_action}
+      scan={@scan}
+      return_to={Routes.scan_index_path(@socket, :index)}
+    />
+  </.modal>
+<% end %>
+
+<table>
+  <thead>
+    <tr>
+      <th>Status</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody id="scans">
+    <%= for scan <- @scans do %>
+      <tr id={"scan-#{scan.id}"}>
+        <td><%= scan.status %></td>
+
+        <td>
+          <span><%= live_redirect "Show", to: Routes.scan_show_path(@socket, :show, scan) %></span>
+          <span><%= live_patch "Edit", to: Routes.scan_index_path(@socket, :edit, scan) %></span>
+          <span><%= link "Delete", to: "#", phx_click: "delete", phx_value_id: scan.id, data: [confirm: "Are you sure?"] %></span>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<span><%= live_patch "New Scan", to: Routes.scan_index_path(@socket, :new) %></span>

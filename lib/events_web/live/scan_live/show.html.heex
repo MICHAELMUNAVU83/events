@@ -1,0 +1,26 @@
+<h1>Show Scan</h1>
+
+<%= if @live_action in [:edit] do %>
+  <.modal return_to={Routes.scan_show_path(@socket, :show, @scan)}>
+    <.live_component
+      module={EventsWeb.ScanLive.FormComponent}
+      id={@scan.id}
+      title={@page_title}
+      action={@live_action}
+      scan={@scan}
+      return_to={Routes.scan_show_path(@socket, :show, @scan)}
+    />
+  </.modal>
+<% end %>
+
+<ul>
+
+  <li>
+    <strong>Status:</strong>
+    <%= @scan.status %>
+  </li>
+
+</ul>
+
+<span><%= live_patch "Edit", to: Routes.scan_show_path(@socket, :edit, @scan), class: "button" %></span> |
+<span><%= live_redirect "Back", to: Routes.scan_index_path(@socket, :index) %></span>
