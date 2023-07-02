@@ -1,58 +1,78 @@
-<h1>Listing Customers</h1>
-
-<%= if @live_action in [:new, :edit] do %>
-  <.modal return_to={Routes.customer_index_path(@socket, :index)}>
-    <.live_component
-      module={EventsWeb.CustomerLive.FormComponent}
-      id={@customer.id || :new}
-      title={@page_title}
-      action={@live_action}
-      customer={@customer}
-      return_to={Routes.customer_index_path(@socket, :index)}
-    />
-  </.modal>
-<% end %>
-
-<table>
-  <thead>
-    <tr>
-      <th>First name</th>
-      <th>Last name</th>
-      <th>Email</th>
-      <th>Phone</th>
-      <th>Status</th>
-
-      <th></th>
-    </tr>
-  </thead>
-  <tbody id="customers">
-    <%= for customer <- @customers do %>
-      <tr id={"customer-#{customer.id}"}>
-        <td><%= customer.first_name %></td>
-        <td><%= customer.last_name %></td>
-        <td><%= customer.email %></td>
-        <td><%= customer.phone %></td>
-        <td><%= customer.status %></td>
-
-        <td>
-          <span>
-            <%= live_redirect("Show", to: Routes.customer_show_path(@socket, :show, customer)) %>
-          </span>
-          <span>
-            <%= live_patch("Edit", to: Routes.customer_index_path(@socket, :edit, customer)) %>
-          </span>
-          <span>
-            <%= link("Delete",
-              to: "#",
-              phx_click: "delete",
-              phx_value_id: customer.id,
-              data: [confirm: "Are you sure?"]
-            ) %>
-          </span>
-        </td>
-      </tr>
+<div class="bg-[#191A23] w-[100%] p-4 min-h-[100vh]  ">
+  <div class="bg-[#1F2028] min-h-[100vh]    rounded-lg">
+    <%= if @live_action in [:new, :edit] do %>
+      <.modal return_to={Routes.customer_index_path(@socket, :index)}>
+        <.live_component
+          module={EventsWeb.CustomerLive.FormComponent}
+          id={@customer.id || :new}
+          title={@page_title}
+          action={@live_action}
+          customer={@customer}
+          return_to={Routes.customer_index_path(@socket, :index)}
+        />
+      </.modal>
     <% end %>
-  </tbody>
-</table>
 
-<span><%= live_patch("New Customer", to: Routes.customer_index_path(@socket, :new)) %></span>
+    <div class=" pt-12 mx-auto flex flex-col">
+      <div class="bg-[#F36363] z2 -mb-8  font-bold text-white text-xl rounded-md overlay  w-[90%]  mx-auto flex items-center p-4 py-8  h-[80px]">
+        Customers
+      </div>
+
+      <div class="bg-white py-24 px-8   w-[95%]     overflow-x-auto  mx-auto flex flex-col gap-4  shadow-md    shadow-[#F36363]/50">
+        <div class="w-[200px]">
+          <%= live_patch("New Customer",
+            to: Routes.customer_index_path(@socket, :new),
+            class:
+              "bg-[#F36363] hover:scale-105 transition-all duration-500 md:text-md text-sm  ease-in-out   flex items-center justify-center py-2 px-4  rounded-md text-white mb-8"
+          ) %>
+        </div>
+
+        <table class="text-center">
+          <thead>
+            <tr>
+              <th>First name</th>
+              <th>Last name</th>
+              <th>Email</th>
+              <th>Phone</th>
+              <th>Status</th>
+
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="customers">
+            <%= for customer <- @customers do %>
+              <tr id={"customer-#{customer.id}"}>
+                <td><%= customer.first_name %></td>
+                <td><%= customer.last_name %></td>
+                <td><%= customer.email %></td>
+                <td><%= customer.phone %></td>
+                <td><%= customer.status %></td>
+
+                <td>
+                  <span>
+                    <%= live_redirect("Show",
+                      to: Routes.customer_show_path(@socket, :show, customer)
+                    ) %>
+                  </span>
+                  <span>
+                    <%= live_patch("Edit",
+                      to: Routes.customer_index_path(@socket, :edit, customer)
+                    ) %>
+                  </span>
+                  <span>
+                    <%= link("Delete",
+                      to: "#",
+                      phx_click: "delete",
+                      phx_value_id: customer.id,
+                      data: [confirm: "Are you sure?"]
+                    ) %>
+                  </span>
+                </td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

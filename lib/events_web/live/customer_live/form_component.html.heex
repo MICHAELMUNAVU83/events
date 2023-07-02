@@ -1,5 +1,5 @@
 <div>
-  <h2><%= @title %></h2>
+  <h2 class="text-[#F36363] font-bold text-xl"><%= @title %></h2>
 
   <.form
     let={f}
@@ -9,28 +9,73 @@
     phx-change="validate"
     phx-submit="save"
   >
-    <%= label(f, :first_name) %>
-    <%= text_input(f, :first_name) %>
-    <%= error_tag(f, :first_name) %>
+    <div class="mt-4 p-4 gap-4 flex flex-col ">
+      <div class="flex flex-col md:flex-row w-[100%] justify-between items-start">
+        <div class="flex gap-2 flex-col w-[100%] md:w-[48%]">
+          <%= label(f, :first_name, class: "text-[#F36363]") %>
+          <%= text_input(f, :first_name,
+            class:
+              "p-2 text-black border-transparent bg-white focus:border-transparent focus:ring-0 p-2 focus:outline-[#F36363]"
+          ) %>
+          <p class="pt-5">
+            <%= error_tag(f, :first_name) %>
+          </p>
+        </div>
 
-    <%= label(f, :last_name) %>
-    <%= text_input(f, :last_name) %>
-    <%= error_tag(f, :last_name) %>
+        <div class="flex gap-2 flex-col w-[100%] md:w-[48%]">
+          <%= label(f, :last_name, class: "text-[#F36363]") %>
+          <%= text_input(f, :last_name,
+            class:
+              "p-2 text-black border-transparent bg-white focus:border-transparent focus:ring-0 p-2 focus:outline-[#F36363]"
+          ) %>
+          <p class="pt-5">
+            <%= error_tag(f, :last_name) %>
+          </p>
+        </div>
+      </div>
 
-    <%= label(f, :email) %>
-    <%= text_input(f, :email) %>
-    <%= error_tag(f, :email) %>
+      <div class="flex flex-col md:flex-row w-[100%] justify-between items-start">
+        <div class="flex gap-2 flex-col w-[100%] md:w-[48%]">
+          <%= label(f, :email, class: "text-[#F36363]") %>
+          <%= text_input(f, :email,
+            class:
+              "p-2 text-black border-transparent bg-white focus:border-transparent focus:ring-0 p-2 focus:outline-[#F36363]"
+          ) %>
+          <p class="pt-5">
+            <%= error_tag(f, :email) %>
+          </p>
+        </div>
 
-    <%= label(f, :phone) %>
-    <%= text_input(f, :phone) %>
-    <%= error_tag(f, :phone) %>
+        <div class="flex gap-2 flex-col w-[100%] md:w-[48%]">
+          <%= label(f, :phone, class: "text-[#F36363]") %>
+          <%= text_input(f, :phone,
+            class:
+              "p-2 text-black border-transparent bg-white focus:border-transparent focus:ring-0 p-2 focus:outline-[#F36363]"
+          ) %>
+          <p class="pt-5">
+            <%= error_tag(f, :phone) %>
+          </p>
+        </div>
+      </div>
+      <div class="flex flex-col md:flex-row w-[100%] justify-between items-start">
+        <div class="flex gap-2 flex-col w-[100%] md:w-[48%]">
+          <%= label(f, :status, class: "text-[#F36363]") %>
+          <%= text_input(f, :status,
+            class:
+              "p-2 text-black border-transparent bg-white focus:border-transparent focus:ring-0 p-2 focus:outline-[#F36363]"
+          ) %>
+          <p class="pt-5">
+            <%= error_tag(f, :status) %>
+          </p>
+        </div>
+      </div>
 
-    <%= label(f, :status) %>
-    <%= text_input(f, :status) %>
-    <%= error_tag(f, :status) %>
-
-    <div>
-      <%= submit("Save", phx_disable_with: "Saving...") %>
+      <div class="flex gap-2 flex-col md:w-[30%] w-[40%] mx-auto">
+        <%= submit("Save",
+          phx_disable_with: "Saving...",
+          class: "bg-[#F36363] text-white p-2 rounded-md"
+        ) %>
+      </div>
     </div>
   </.form>
 </div>
