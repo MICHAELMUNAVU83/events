@@ -110,7 +110,6 @@ defmodule EventsWeb.Router do
     live "/tickets/:id", TicketLive.Show, :show
     live "/tickets/:id/show/edit", TicketLive.Show, :edit
 
-
     live "/scans", ScanLive.Index, :index
     live "/scans/new", ScanLive.Index, :new
     live "/scans/:id/edit", ScanLive.Index, :edit

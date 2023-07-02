@@ -4,8 +4,18 @@ defmodule EventsWeb.NotificationLiveTest do
   import Phoenix.LiveViewTest
   import Events.NotificationsFixtures
 
-  @create_attrs %{amount: "some amount", description: "some description", status: "some status", type: "some type"}
-  @update_attrs %{amount: "some updated amount", description: "some updated description", status: "some updated status", type: "some updated type"}
+  @create_attrs %{
+    amount: "some amount",
+    description: "some description",
+    status: "some status",
+    type: "some type"
+  }
+  @update_attrs %{
+    amount: "some updated amount",
+    description: "some updated description",
+    status: "some updated status",
+    type: "some updated type"
+  }
   @invalid_attrs %{amount: nil, description: nil, status: nil, type: nil}
 
   defp create_notification(_) do
@@ -70,7 +80,10 @@ defmodule EventsWeb.NotificationLiveTest do
     test "deletes notification in listing", %{conn: conn, notification: notification} do
       {:ok, index_live, _html} = live(conn, Routes.notification_index_path(conn, :index))
 
-      assert index_live |> element("#notification-#{notification.id} a", "Delete") |> render_click()
+      assert index_live
+             |> element("#notification-#{notification.id} a", "Delete")
+             |> render_click()
+
       refute has_element?(index_live, "#notification-#{notification.id}")
     end
   end
@@ -79,14 +92,16 @@ defmodule EventsWeb.NotificationLiveTest do
     setup [:create_notification]
 
     test "displays notification", %{conn: conn, notification: notification} do
-      {:ok, _show_live, html} = live(conn, Routes.notification_show_path(conn, :show, notification))
+      {:ok, _show_live, html} =
+        live(conn, Routes.notification_show_path(conn, :show, notification))
 
       assert html =~ "Show Notification"
       assert html =~ notification.amount
     end
 
     test "updates notification within modal", %{conn: conn, notification: notification} do
-      {:ok, show_live, _html} = live(conn, Routes.notification_show_path(conn, :show, notification))
+      {:ok, show_live, _html} =
+        live(conn, Routes.notification_show_path(conn, :show, notification))
 
       assert show_live |> element("a", "Edit") |> render_click() =~
                "Edit Notification"

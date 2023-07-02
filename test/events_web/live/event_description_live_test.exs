@@ -45,13 +45,21 @@ defmodule EventsWeb.EventDescriptionLiveTest do
       assert html =~ "some description"
     end
 
-    test "updates event_description in listing", %{conn: conn, event_description: event_description} do
+    test "updates event_description in listing", %{
+      conn: conn,
+      event_description: event_description
+    } do
       {:ok, index_live, _html} = live(conn, Routes.event_description_index_path(conn, :index))
 
-      assert index_live |> element("#event_description-#{event_description.id} a", "Edit") |> render_click() =~
+      assert index_live
+             |> element("#event_description-#{event_description.id} a", "Edit")
+             |> render_click() =~
                "Edit Event description"
 
-      assert_patch(index_live, Routes.event_description_index_path(conn, :edit, event_description))
+      assert_patch(
+        index_live,
+        Routes.event_description_index_path(conn, :edit, event_description)
+      )
 
       assert index_live
              |> form("#event_description-form", event_description: @invalid_attrs)
@@ -67,10 +75,16 @@ defmodule EventsWeb.EventDescriptionLiveTest do
       assert html =~ "some updated description"
     end
 
-    test "deletes event_description in listing", %{conn: conn, event_description: event_description} do
+    test "deletes event_description in listing", %{
+      conn: conn,
+      event_description: event_description
+    } do
       {:ok, index_live, _html} = live(conn, Routes.event_description_index_path(conn, :index))
 
-      assert index_live |> element("#event_description-#{event_description.id} a", "Delete") |> render_click()
+      assert index_live
+             |> element("#event_description-#{event_description.id} a", "Delete")
+             |> render_click()
+
       refute has_element?(index_live, "#event_description-#{event_description.id}")
     end
   end
@@ -79,14 +93,19 @@ defmodule EventsWeb.EventDescriptionLiveTest do
     setup [:create_event_description]
 
     test "displays event_description", %{conn: conn, event_description: event_description} do
-      {:ok, _show_live, html} = live(conn, Routes.event_description_show_path(conn, :show, event_description))
+      {:ok, _show_live, html} =
+        live(conn, Routes.event_description_show_path(conn, :show, event_description))
 
       assert html =~ "Show Event description"
       assert html =~ event_description.description
     end
 
-    test "updates event_description within modal", %{conn: conn, event_description: event_description} do
-      {:ok, show_live, _html} = live(conn, Routes.event_description_show_path(conn, :show, event_description))
+    test "updates event_description within modal", %{
+      conn: conn,
+      event_description: event_description
+    } do
+      {:ok, show_live, _html} =
+        live(conn, Routes.event_description_show_path(conn, :show, event_description))
 
       assert show_live |> element("a", "Edit") |> render_click() =~
                "Edit Event description"
@@ -101,7 +120,10 @@ defmodule EventsWeb.EventDescriptionLiveTest do
         show_live
         |> form("#event_description-form", event_description: @update_attrs)
         |> render_submit()
-        |> follow_redirect(conn, Routes.event_description_show_path(conn, :show, event_description))
+        |> follow_redirect(
+          conn,
+          Routes.event_description_show_path(conn, :show, event_description)
+        )
 
       assert html =~ "Event description updated successfully"
       assert html =~ "some updated description"

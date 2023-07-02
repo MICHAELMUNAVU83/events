@@ -28,7 +28,10 @@ defmodule EventsWeb.EventDescriptionLive.FormComponent do
   end
 
   defp save_event_description(socket, :edit, event_description_params) do
-    case EventsDescriptions.update_event_description(socket.assigns.event_description, event_description_params) do
+    case EventsDescriptions.update_event_description(
+           socket.assigns.event_description,
+           event_description_params
+         ) do
       {:ok, _event_description} ->
         {:noreply,
          socket

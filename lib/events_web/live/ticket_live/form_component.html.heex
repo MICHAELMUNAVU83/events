@@ -7,26 +7,26 @@
     id="ticket-form"
     phx-target={@myself}
     phx-change="validate"
-    phx-submit="save">
-  
-    <%= label f, :ticketid %>
-    <%= text_input f, :ticketid %>
-    <%= error_tag f, :ticketid %>
-  
-    <%= label f, :type %>
-    <%= text_input f, :type %>
-    <%= error_tag f, :type %>
-  
-    <%= label f, :image %>
-    <%= text_input f, :image %>
-    <%= error_tag f, :image %>
-  
-    <%= label f, :status %>
-    <%= text_input f, :status %>
-    <%= error_tag f, :status %>
-  
+    phx-submit="save"
+  >
+    <%= label(f, :ticketid) %>
+    <%= text_input(f, :ticketid) %>
+    <%= error_tag(f, :ticketid) %>
+
+    <%= label(f, :type) %>
+    <%= text_input(f, :type) %>
+    <%= error_tag(f, :type) %>
+
+    <%= label(f, :image) %>
+    <%= text_input(f, :image) %>
+    <%= error_tag(f, :image) %>
+
+    <%= label(f, :status) %>
+    <%= text_input(f, :status) %>
+    <%= error_tag(f, :status) %>
+
     <div>
-      <%= submit "Save", phx_disable_with: "Saving..." %>
+      <%= submit("Save", phx_disable_with: "Saving...") %>
     </div>
   </.form>
 </div>

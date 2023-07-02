@@ -41,13 +41,24 @@
         <td><%= event_list.status %></td>
 
         <td>
-          <span><%= live_redirect "Show", to: Routes.event_list_show_path(@socket, :show, event_list) %></span>
-          <span><%= live_patch "Edit", to: Routes.event_list_index_path(@socket, :edit, event_list) %></span>
-          <span><%= link "Delete", to: "#", phx_click: "delete", phx_value_id: event_list.id, data: [confirm: "Are you sure?"] %></span>
+          <span>
+            <%= live_redirect("Show", to: Routes.event_list_show_path(@socket, :show, event_list)) %>
+          </span>
+          <span>
+            <%= live_patch("Edit", to: Routes.event_list_index_path(@socket, :edit, event_list)) %>
+          </span>
+          <span>
+            <%= link("Delete",
+              to: "#",
+              phx_click: "delete",
+              phx_value_id: event_list.id,
+              data: [confirm: "Are you sure?"]
+            ) %>
+          </span>
         </td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<span><%= live_patch "New Event list", to: Routes.event_list_index_path(@socket, :new) %></span>
+<span><%= live_patch("New Event list", to: Routes.event_list_index_path(@socket, :new)) %></span>

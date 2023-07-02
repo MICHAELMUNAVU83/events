@@ -4,9 +4,36 @@ defmodule EventsWeb.EventListLiveTest do
   import Phoenix.LiveViewTest
   import Events.EventListsFixtures
 
-  @create_attrs %{approvalone: "some approvalone", approvaltwo: "some approvaltwo", doe: %{day: 1, month: 7, year: 2023}, images: "some images", name: "some name", slots: 42, status: "some status", time: "some time"}
-  @update_attrs %{approvalone: "some updated approvalone", approvaltwo: "some updated approvaltwo", doe: %{day: 2, month: 7, year: 2023}, images: "some updated images", name: "some updated name", slots: 43, status: "some updated status", time: "some updated time"}
-  @invalid_attrs %{approvalone: nil, approvaltwo: nil, doe: %{day: 30, month: 2, year: 2023}, images: nil, name: nil, slots: nil, status: nil, time: nil}
+  @create_attrs %{
+    approvalone: "some approvalone",
+    approvaltwo: "some approvaltwo",
+    doe: %{day: 1, month: 7, year: 2023},
+    images: "some images",
+    name: "some name",
+    slots: 42,
+    status: "some status",
+    time: "some time"
+  }
+  @update_attrs %{
+    approvalone: "some updated approvalone",
+    approvaltwo: "some updated approvaltwo",
+    doe: %{day: 2, month: 7, year: 2023},
+    images: "some updated images",
+    name: "some updated name",
+    slots: 43,
+    status: "some updated status",
+    time: "some updated time"
+  }
+  @invalid_attrs %{
+    approvalone: nil,
+    approvaltwo: nil,
+    doe: %{day: 30, month: 2, year: 2023},
+    images: nil,
+    name: nil,
+    slots: nil,
+    status: nil,
+    time: nil
+  }
 
   defp create_event_list(_) do
     event_list = event_list_fixture()

@@ -17,8 +17,9 @@ config :events, EventsWeb.Endpoint,
   pubsub_server: Events.PubSub,
   live_view: [signing_salt: "gp4ytyup"]
 
-
-  config :tailwind, version: "3.3.2", default: [
+config :tailwind,
+  version: "3.3.2",
+  default: [
     args: ~w(
       --config=tailwind.config.js
       --input=css/app.css

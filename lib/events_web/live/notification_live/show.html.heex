@@ -14,7 +14,6 @@
 <% end %>
 
 <ul>
-
   <li>
     <strong>Description:</strong>
     <%= @notification.description %>
@@ -34,8 +33,12 @@
     <strong>Status:</strong>
     <%= @notification.status %>
   </li>
-
 </ul>
 
-<span><%= live_patch "Edit", to: Routes.notification_show_path(@socket, :edit, @notification), class: "button" %></span> |
-<span><%= live_redirect "Back", to: Routes.notification_index_path(@socket, :index) %></span>
+<span>
+  <%= live_patch("Edit",
+    to: Routes.notification_show_path(@socket, :edit, @notification),
+    class: "button"
+  ) %>
+</span> |
+<span><%= live_redirect("Back", to: Routes.notification_index_path(@socket, :index)) %></span>

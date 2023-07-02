@@ -21,9 +21,16 @@ defmodule Events.NotificationsTest do
     end
 
     test "create_notification/1 with valid data creates a notification" do
-      valid_attrs = %{amount: "some amount", description: "some description", status: "some status", type: "some type"}
+      valid_attrs = %{
+        amount: "some amount",
+        description: "some description",
+        status: "some status",
+        type: "some type"
+      }
 
-      assert {:ok, %Notification{} = notification} = Notifications.create_notification(valid_attrs)
+      assert {:ok, %Notification{} = notification} =
+               Notifications.create_notification(valid_attrs)
+
       assert notification.amount == "some amount"
       assert notification.description == "some description"
       assert notification.status == "some status"
@@ -36,9 +43,17 @@ defmodule Events.NotificationsTest do
 
     test "update_notification/2 with valid data updates the notification" do
       notification = notification_fixture()
-      update_attrs = %{amount: "some updated amount", description: "some updated description", status: "some updated status", type: "some updated type"}
 
-      assert {:ok, %Notification{} = notification} = Notifications.update_notification(notification, update_attrs)
+      update_attrs = %{
+        amount: "some updated amount",
+        description: "some updated description",
+        status: "some updated status",
+        type: "some updated type"
+      }
+
+      assert {:ok, %Notification{} = notification} =
+               Notifications.update_notification(notification, update_attrs)
+
       assert notification.amount == "some updated amount"
       assert notification.description == "some updated description"
       assert notification.status == "some updated status"
@@ -47,7 +62,10 @@ defmodule Events.NotificationsTest do
 
     test "update_notification/2 with invalid data returns error changeset" do
       notification = notification_fixture()
-      assert {:error, %Ecto.Changeset{}} = Notifications.update_notification(notification, @invalid_attrs)
+
+      assert {:error, %Ecto.Changeset{}} =
+               Notifications.update_notification(notification, @invalid_attrs)
+
       assert notification == Notifications.get_notification!(notification.id)
     end
 

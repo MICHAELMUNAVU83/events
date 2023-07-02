@@ -21,7 +21,13 @@ defmodule Events.CustomersTest do
     end
 
     test "create_customer/1 with valid data creates a customer" do
-      valid_attrs = %{email: "some email", first_name: "some first_name", last_name: "some last_name", phone: "some phone", status: "some status"}
+      valid_attrs = %{
+        email: "some email",
+        first_name: "some first_name",
+        last_name: "some last_name",
+        phone: "some phone",
+        status: "some status"
+      }
 
       assert {:ok, %Customer{} = customer} = Customers.create_customer(valid_attrs)
       assert customer.email == "some email"
@@ -37,7 +43,14 @@ defmodule Events.CustomersTest do
 
     test "update_customer/2 with valid data updates the customer" do
       customer = customer_fixture()
-      update_attrs = %{email: "some updated email", first_name: "some updated first_name", last_name: "some updated last_name", phone: "some updated phone", status: "some updated status"}
+
+      update_attrs = %{
+        email: "some updated email",
+        first_name: "some updated first_name",
+        last_name: "some updated last_name",
+        phone: "some updated phone",
+        status: "some updated status"
+      }
 
       assert {:ok, %Customer{} = customer} = Customers.update_customer(customer, update_attrs)
       assert customer.email == "some updated email"

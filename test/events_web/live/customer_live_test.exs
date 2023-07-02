@@ -4,8 +4,20 @@ defmodule EventsWeb.CustomerLiveTest do
   import Phoenix.LiveViewTest
   import Events.CustomersFixtures
 
-  @create_attrs %{email: "some email", first_name: "some first_name", last_name: "some last_name", phone: "some phone", status: "some status"}
-  @update_attrs %{email: "some updated email", first_name: "some updated first_name", last_name: "some updated last_name", phone: "some updated phone", status: "some updated status"}
+  @create_attrs %{
+    email: "some email",
+    first_name: "some first_name",
+    last_name: "some last_name",
+    phone: "some phone",
+    status: "some status"
+  }
+  @update_attrs %{
+    email: "some updated email",
+    first_name: "some updated first_name",
+    last_name: "some updated last_name",
+    phone: "some updated phone",
+    status: "some updated status"
+  }
   @invalid_attrs %{email: nil, first_name: nil, last_name: nil, phone: nil, status: nil}
 
   defp create_customer(_) do

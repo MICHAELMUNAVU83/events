@@ -51,11 +51,10 @@ defmodule EventsWeb do
     end
   end
 
-
   def dashboard_live_view do
     quote do
       use Phoenix.LiveView,
-        layout: {EventsWeb.LayoutView, "live.html"}
+        layout: {EventsWeb.LayoutView, "dashboard.html"}
 
       unquote(view_helpers())
     end

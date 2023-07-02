@@ -8,7 +8,16 @@ defmodule Events.EventListsTest do
 
     import Events.EventListsFixtures
 
-    @invalid_attrs %{approvalone: nil, approvaltwo: nil, doe: nil, images: nil, name: nil, slots: nil, status: nil, time: nil}
+    @invalid_attrs %{
+      approvalone: nil,
+      approvaltwo: nil,
+      doe: nil,
+      images: nil,
+      name: nil,
+      slots: nil,
+      status: nil,
+      time: nil
+    }
 
     test "list_eventslists/0 returns all eventslists" do
       event_list = event_list_fixture()
@@ -21,7 +30,16 @@ defmodule Events.EventListsTest do
     end
 
     test "create_event_list/1 with valid data creates a event_list" do
-      valid_attrs = %{approvalone: "some approvalone", approvaltwo: "some approvaltwo", doe: ~D[2023-07-01], images: "some images", name: "some name", slots: 42, status: "some status", time: "some time"}
+      valid_attrs = %{
+        approvalone: "some approvalone",
+        approvaltwo: "some approvaltwo",
+        doe: ~D[2023-07-01],
+        images: "some images",
+        name: "some name",
+        slots: 42,
+        status: "some status",
+        time: "some time"
+      }
 
       assert {:ok, %EventList{} = event_list} = EventLists.create_event_list(valid_attrs)
       assert event_list.approvalone == "some approvalone"
@@ -40,9 +58,21 @@ defmodule Events.EventListsTest do
 
     test "update_event_list/2 with valid data updates the event_list" do
       event_list = event_list_fixture()
-      update_attrs = %{approvalone: "some updated approvalone", approvaltwo: "some updated approvaltwo", doe: ~D[2023-07-02], images: "some updated images", name: "some updated name", slots: 43, status: "some updated status", time: "some updated time"}
 
-      assert {:ok, %EventList{} = event_list} = EventLists.update_event_list(event_list, update_attrs)
+      update_attrs = %{
+        approvalone: "some updated approvalone",
+        approvaltwo: "some updated approvaltwo",
+        doe: ~D[2023-07-02],
+        images: "some updated images",
+        name: "some updated name",
+        slots: 43,
+        status: "some updated status",
+        time: "some updated time"
+      }
+
+      assert {:ok, %EventList{} = event_list} =
+               EventLists.update_event_list(event_list, update_attrs)
+
       assert event_list.approvalone == "some updated approvalone"
       assert event_list.approvaltwo == "some updated approvaltwo"
       assert event_list.doe == ~D[2023-07-02]
@@ -55,7 +85,10 @@ defmodule Events.EventListsTest do
 
     test "update_event_list/2 with invalid data returns error changeset" do
       event_list = event_list_fixture()
-      assert {:error, %Ecto.Changeset{}} = EventLists.update_event_list(event_list, @invalid_attrs)
+
+      assert {:error, %Ecto.Changeset{}} =
+               EventLists.update_event_list(event_list, @invalid_attrs)
+
       assert event_list == EventLists.get_event_list!(event_list.id)
     end
 

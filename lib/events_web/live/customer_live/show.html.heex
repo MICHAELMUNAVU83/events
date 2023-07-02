@@ -14,7 +14,6 @@
 <% end %>
 
 <ul>
-
   <li>
     <strong>First name:</strong>
     <%= @customer.first_name %>
@@ -39,8 +38,9 @@
     <strong>Status:</strong>
     <%= @customer.status %>
   </li>
-
 </ul>
 
-<span><%= live_patch "Edit", to: Routes.customer_show_path(@socket, :edit, @customer), class: "button" %></span> |
-<span><%= live_redirect "Back", to: Routes.customer_index_path(@socket, :index) %></span>
+<span>
+  <%= live_patch("Edit", to: Routes.customer_show_path(@socket, :edit, @customer), class: "button") %>
+</span> |
+<span><%= live_redirect("Back", to: Routes.customer_index_path(@socket, :index)) %></span>

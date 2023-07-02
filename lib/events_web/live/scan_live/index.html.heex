@@ -27,13 +27,22 @@
         <td><%= scan.status %></td>
 
         <td>
-          <span><%= live_redirect "Show", to: Routes.scan_show_path(@socket, :show, scan) %></span>
-          <span><%= live_patch "Edit", to: Routes.scan_index_path(@socket, :edit, scan) %></span>
-          <span><%= link "Delete", to: "#", phx_click: "delete", phx_value_id: scan.id, data: [confirm: "Are you sure?"] %></span>
+          <span>
+            <%= live_redirect("Show", to: Routes.scan_show_path(@socket, :show, scan)) %>
+          </span>
+          <span><%= live_patch("Edit", to: Routes.scan_index_path(@socket, :edit, scan)) %></span>
+          <span>
+            <%= link("Delete",
+              to: "#",
+              phx_click: "delete",
+              phx_value_id: scan.id,
+              data: [confirm: "Are you sure?"]
+            ) %>
+          </span>
         </td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<span><%= live_patch "New Scan", to: Routes.scan_index_path(@socket, :new) %></span>
+<span><%= live_patch("New Scan", to: Routes.scan_index_path(@socket, :new)) %></span>

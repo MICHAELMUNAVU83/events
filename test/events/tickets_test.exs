@@ -21,7 +21,12 @@ defmodule Events.TicketsTest do
     end
 
     test "create_ticket/1 with valid data creates a ticket" do
-      valid_attrs = %{image: "some image", status: "some status", ticketid: "some ticketid", type: "some type"}
+      valid_attrs = %{
+        image: "some image",
+        status: "some status",
+        ticketid: "some ticketid",
+        type: "some type"
+      }
 
       assert {:ok, %Ticket{} = ticket} = Tickets.create_ticket(valid_attrs)
       assert ticket.image == "some image"
@@ -36,7 +41,13 @@ defmodule Events.TicketsTest do
 
     test "update_ticket/2 with valid data updates the ticket" do
       ticket = ticket_fixture()
-      update_attrs = %{image: "some updated image", status: "some updated status", ticketid: "some updated ticketid", type: "some updated type"}
+
+      update_attrs = %{
+        image: "some updated image",
+        status: "some updated status",
+        ticketid: "some updated ticketid",
+        type: "some updated type"
+      }
 
       assert {:ok, %Ticket{} = ticket} = Tickets.update_ticket(ticket, update_attrs)
       assert ticket.image == "some updated image"

@@ -4,8 +4,18 @@ defmodule EventsWeb.TicketLiveTest do
   import Phoenix.LiveViewTest
   import Events.TicketsFixtures
 
-  @create_attrs %{image: "some image", status: "some status", ticketid: "some ticketid", type: "some type"}
-  @update_attrs %{image: "some updated image", status: "some updated status", ticketid: "some updated ticketid", type: "some updated type"}
+  @create_attrs %{
+    image: "some image",
+    status: "some status",
+    ticketid: "some ticketid",
+    type: "some type"
+  }
+  @update_attrs %{
+    image: "some updated image",
+    status: "some updated status",
+    ticketid: "some updated ticketid",
+    type: "some updated type"
+  }
   @invalid_attrs %{image: nil, status: nil, ticketid: nil, type: nil}
 
   defp create_ticket(_) do
